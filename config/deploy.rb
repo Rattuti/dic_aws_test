@@ -9,8 +9,8 @@ set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets public/uploads}
 set :keep_releases, 5
 set :log_level, :info
 set :rbenv_version, '3.0.1'
-
-append :linked_files, 'config/secrets.yml' 
+set :linked_files, %w{config/secrets.yml .env}
+# append :linked_files, 'config/secrets.yml' 
 
 after 'deploy:published', 'deploy:seed'
 after 'deploy:finished', 'deploy:restart'
