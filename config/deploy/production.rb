@@ -57,5 +57,5 @@ server "15.152.191.14",
     keys: %w(/home/iishihara96296/.ssh/dic_sample.pem),
     forward_agent: false,
     auth_methods: %w(publickey password)
-    # password: "please use keys"
+    #password: ""
 }

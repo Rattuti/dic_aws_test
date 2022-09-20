@@ -1,12 +1,16 @@
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.17.1"
+lock "~> 3.17.0"
 
 set :application, "dic_aws_test"
 set :repo_url, "https://github.com/Rattuti/dic_aws_test.git"
 set :bundle_without, %w{test}.join(':')
-
+set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets public/uploads}
+set :keep_releases, 5
+set :log_level, :info
 set :rbenv_version, '3.0.1'
 append :linked_files, 'config/secrets.yml'
+
+after 'deploy:finished', 'deploy:restart'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
